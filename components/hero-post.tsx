@@ -3,6 +3,7 @@ import Date from './date'
 import CoverImage from './cover-image'
 import Link from 'next/link'
 import Container from './container';
+import { useState } from 'react';
 
 export default function HeroPost({
   title,
@@ -12,10 +13,19 @@ export default function HeroPost({
   author,
   slug,
 }) {
+  const [hovered, setHovered] = useState(false);
+  
   return (
     <section>
-      <Container coverImage={coverImage.node.sourceUrl} gradient_opacity={0.5} inner_shadow={true}>
-        <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
+        <div 
+        onClick={()=>alert('hello')} 
+        className="hover:transition-all duration-700 ease-in-out  rounded-lg p-6 md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28"
+        style={{
+          cursor: hovered?'pointer':'no', 
+          transform: hovered ? 'scale(0.98)' : ''
+        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}>
           <div>
             <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
               <Link
@@ -36,7 +46,6 @@ export default function HeroPost({
             <Avatar author={author} />
           </div>
         </div>
-      </Container>
     </section>
   )
 }

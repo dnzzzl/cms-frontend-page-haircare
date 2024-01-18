@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 import { getAllPostsForHome } from '../lib/api'
 import { CMS_NAME } from '../lib/constants'
 import { sub } from 'date-fns'
+import TabView from '../components/Tabview'
 
 export default function Index({ allPosts: { edges }, preview }) {
   const heroPost = edges[0]?.node
@@ -21,26 +22,33 @@ export default function Index({ allPosts: { edges }, preview }) {
         <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
       </Head>
       <Intro title={title} subtitle={subtitle}/>
-      <Container>
-        {heroPost && (
-          <HeroPost
-            title={heroPost.title}
-            coverImage={heroPost.featuredImage}
-            date={heroPost.date}
-            author={heroPost.author}
-            slug={heroPost.slug}
-            excerpt={heroPost.excerpt}
-          />
-        )}
-        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-      </Container>
+      <TabView labels={["blog","shop"]}>
+        <div 
+        className=''
+        >
+          blog section
+          {heroPost && (
+            <HeroPost
+              title={heroPost.title}
+              coverImage={heroPost.featuredImage}
+              date={heroPost.date}
+              author={heroPost.author}
+              slug={heroPost.slug}
+              excerpt={heroPost.excerpt}
+            />
+          )}
+          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+        </div>
+        <div>
+          shop
+        </div>
+      </TabView>
     </Layout>
   )
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const allPosts = await getAllPostsForHome(preview)
-
   return {
     props: { allPosts, preview },
     revalidate: 10,
