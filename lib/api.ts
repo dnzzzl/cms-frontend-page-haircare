@@ -1,3 +1,5 @@
+import { Product } from "../components/product-card"
+
 const API_URL = process.env.WORDPRESS_API_URL
 
 async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
@@ -210,3 +212,72 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
 
   return data
 }
+
+export function getProductsMockData() {
+  const products:Product[] = [
+    {
+      "id": 1,
+      "imageUrl": "https://via.placeholder.com/300x450",
+      "name": "Shampoo",
+      "description": "Our all-natural shampoo is infused with nourishing ingredients like coconut oil and shea butter to leave your hair feeling soft and clean.",
+      "price": "$8.99"
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://via.placeholder.com/300x450",
+      "name": "Conditioner",
+      "description": "Moisturizing and hydrating, our conditioner helps detangle and protect your hair from heat damage.",
+      "price": "$7.99"
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://via.placeholder.com/300x450",
+      "name": "Leave-In Conditioner",
+      "description": "A lightweight leave-in conditioner that adds moisture and shine to your hair without weighing it down.",
+      "price": "$6.99"
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://via.placeholder.com/300x450",
+      "name": "Styling Cream",
+      "description": "A rich styling cream that provides hold and definition to your hair, perfect for updos and braids.",
+      "price": "$9.99"
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://via.placeholder.com/300x450",
+      "name": "Hair Mask",
+      "description": "A luxurious hair mask that deeply nourishes and conditions your hair, leaving it soft and silky smooth.",
+      "price": "$12.99"
+    },
+    {
+      "id": 6,
+      "imageUrl": "https://via.placeholder.com/300x450",
+      "name": "MEGA10",
+      "description": "Es una mezcla de más de 10 aceites infusionados con especias naturales de la India. Dejara tu piel, cuero cabelludo y melena saludables y llenos de vida",
+      "price": "$750"
+    },
+    {
+      "id": 7,
+      "imageUrl": "https://via.placeholder.com/300x450",
+      "name": "Styling Cream",
+      "description": "A rich styling cream that provides hold and definition to your hair, perfect for updos and braids.",
+      "price": "$9.99"
+    },
+    {
+      "id": 8,
+      "imageUrl": "https://via.placeholder.com/300x450",
+      "name": "Hair Mask",
+      "description": "A luxurious hair mask that deeply nourishes and conditions your hair, leaving it soft and silky smooth.",
+      "price": "$12.99"
+    },
+    {
+      "id": 9,
+      "imageUrl": "https://via.placeholder.com/300x450",
+      "name": "Hair Oil",
+      "description": "A nourishing hair oil that leaves your locks healthy, shiny, and full of life.",
+      "price": "$14.99"
+    }
+  ]
+  return { edges:products }
+  }
