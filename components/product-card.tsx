@@ -5,9 +5,10 @@ import Image from 'next/image'
 
 export interface Product {
     id: number
-    imageUrl: string,
+    images: string[],
     name: string,
-    description: string,
+    short_description: string,
+    long_description: string,
     price: string,
 }
 
@@ -17,7 +18,7 @@ const ProductCard: FC<Product> = (product : Product) => {
         <Link key={product.id} href="/shop/[id]" as={`/shop/${product.id}`}>
             <div className="p-4">
                 <Image
-                src={product.imageUrl}
+                src={product.images[0]}
                 alt={product.name}
                 objectFit="cover"
                 height={300}
@@ -28,7 +29,7 @@ const ProductCard: FC<Product> = (product : Product) => {
                 />
 
                 <h2 className="text-xl font-bold  mt-4">{product.name}</h2>
-                <p className="mt-1 text-sm text-gray-500">{product.description}</p>
+                <p className="mt-1 text-sm text-gray-500">{product.short_description}</p>
                 
             </div>
         </Link>

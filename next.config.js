@@ -12,7 +12,7 @@ const { protocol, hostname, port, pathname } = new URL(
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
-    domains: ['localhost','2.gravatar.com','via.placeholder.com'],
+    domains: ['picsum.photos','localhost','2.gravatar.com','via.placeholder.com'],
     remotePatterns: [
       {
         protocol: protocol.slice(0, -1),

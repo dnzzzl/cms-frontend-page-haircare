@@ -217,67 +217,20 @@ export function getProductsMockData() {
   const products:Product[] = [
     {
       "id": 1,
-      "imageUrl": "https://via.placeholder.com/300x450",
-      "name": "Shampoo",
-      "description": "Our all-natural shampoo is infused with nourishing ingredients like coconut oil and shea butter to leave your hair feeling soft and clean.",
-      "price": "$8.99"
+      "images": ["http://localhost:8889/wp-content/uploads/2024/01/858dbcbd-1bde-4c5a-bfec-3cad829cccd3.jpg"],
+      "name": "Clean Me Up",
+      "short_description": "Limpia a profundidad sin maltratar tu cabello. Con un aroma delicioso que disfrutarás. Hecho a base de hierbas estimulantes del crecimiento.",
+      "long_description": "Experimenta una limpieza profunda que mime tu cabello con nuestro champú Clean Me Up.\nEstá elaborado con una fragancia irresistiblemente encantadora que convertirá tu rutina de cuidado del cabello en una experiencia sensorial.\nEsta fórmula única, hecha con hierbas estimulantes, tiene como objetivo promover el crecimiento del cabello mientras lo mantiene increíblemente limpio.\n\nInstrucciones de uso:\n1. Moja completamente tu cabello.\n2. Vierte una cantidad adecuada de champú en tus manos.\n3. Aplica el champú en el cuero cabelludo, masajeándolo suavemente.\n4. Deja que la espuma cremosa se deslice por tus mechones.\n5. Enjuaga y repite si es necesario.\n6. Enjuaga completamente con abundante agua.\n\nEvita frotar el champú bruscamente en tus mechones, ya que podría provocar sequedad innecesaria.\nCon Clean Me Up, asegúrate de una limpieza delicada que ama tu cabello tanto como tú lo haces.",
+      "price": "$595"
     },
     {
       "id": 2,
-      "imageUrl": "https://via.placeholder.com/300x450",
-      "name": "Conditioner",
-      "description": "Moisturizing and hydrating, our conditioner helps detangle and protect your hair from heat damage.",
+      "images": ["http://localhost:8889/wp-content/uploads/2024/01/770a0e8f-b783-4418-b00a-f507202d55c8.jpg"],
+      "name": "Less Tangle",
+      "short_description": " Descubre un cabello suave y manejable con nuestro acondicionador Less Tangle. Elaborado con ingredientes enriquecedores, este acondicionador ofrece una hidratación esencial, lo que da como resultado un cabello fácil de peinar y protegido contra el calor.",
+      "long_description":"El acondicionador Less Tangle juega un papel esencial en tu rutina de cuidado del cabello al sellar los efectos beneficiosos de tu mascarilla o tratamiento capilar. Con solo un poco de producto puedes desenredar las hebras más rebeldes. Cuida tu cabello con nuestra fórmula ligera pero profundamente nutritiva adecuada para todo tipo de cabello.\n\nInstrucciones de uso:\n1. Después de lavarse el cabello con champú o aplicarse una mascarilla para el cabello, aplique el acondicionador Less Tangle.\n2. Desenreda tu cabello comenzando desde abajo usando un peine de dientes anchos.\n3. Enjuague generosamente con agua.\n\nCon el acondicionador Less Tangle, disfruta de un cuidado nutritivo que respeta la belleza natural de tu cabello.",
       "price": "$7.99"
     },
-    {
-      "id": 3,
-      "imageUrl": "https://via.placeholder.com/300x450",
-      "name": "Leave-In Conditioner",
-      "description": "A lightweight leave-in conditioner that adds moisture and shine to your hair without weighing it down.",
-      "price": "$6.99"
-    },
-    {
-      "id": 4,
-      "imageUrl": "https://via.placeholder.com/300x450",
-      "name": "Styling Cream",
-      "description": "A rich styling cream that provides hold and definition to your hair, perfect for updos and braids.",
-      "price": "$9.99"
-    },
-    {
-      "id": 5,
-      "imageUrl": "https://via.placeholder.com/300x450",
-      "name": "Hair Mask",
-      "description": "A luxurious hair mask that deeply nourishes and conditions your hair, leaving it soft and silky smooth.",
-      "price": "$12.99"
-    },
-    {
-      "id": 6,
-      "imageUrl": "https://via.placeholder.com/300x450",
-      "name": "MEGA10",
-      "description": "Es una mezcla de más de 10 aceites infusionados con especias naturales de la India. Dejara tu piel, cuero cabelludo y melena saludables y llenos de vida",
-      "price": "$750"
-    },
-    {
-      "id": 7,
-      "imageUrl": "https://via.placeholder.com/300x450",
-      "name": "Styling Cream",
-      "description": "A rich styling cream that provides hold and definition to your hair, perfect for updos and braids.",
-      "price": "$9.99"
-    },
-    {
-      "id": 8,
-      "imageUrl": "https://via.placeholder.com/300x450",
-      "name": "Hair Mask",
-      "description": "A luxurious hair mask that deeply nourishes and conditions your hair, leaving it soft and silky smooth.",
-      "price": "$12.99"
-    },
-    {
-      "id": 9,
-      "imageUrl": "https://via.placeholder.com/300x450",
-      "name": "Hair Oil",
-      "description": "A nourishing hair oil that leaves your locks healthy, shiny, and full of life.",
-      "price": "$14.99"
-    }
   ]
   return { edges:products }
   }

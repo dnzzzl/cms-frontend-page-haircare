@@ -11,7 +11,7 @@ export default function Alert({ preview }) {
       })}
     >
       <Container>
-        <div className="py-2 text-center text-sm">
+        <div className="hidden py-2 text-center text-sm">
           {preview ? (
             <>
               This is a page preview.{' '}
@@ -24,7 +24,7 @@ export default function Alert({ preview }) {
               to exit preview mode.
             </>
           ) : (
-            <div className='absolute'>
+            <div className='hidden'>
               test
             </div>
           )}
