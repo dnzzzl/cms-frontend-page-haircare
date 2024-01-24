@@ -1,24 +1,41 @@
 import Link from 'next/link'
 
 export default function Header() {
+  const routes = [{
+    href:"/posts",
+    text: "Blog"
+  },{
+    href:"#",
+    text: "Escribe un DM"
+  },{
+    href:"/shop",
+    text: "Shop"
+  }]
+
   return (
-    <div className="container flex items-center justify-center p-4 bg-gradient-to-t ">
-      <div className="hidden lg:flex lg:ml-6 lg:space-x-4">
-          <Link href="#" className="inline-block py-2 px-4 rounded-lg shadow-sm hover:bg-blue-700 hover:text-white">
-            Blog
-          </Link>
-          <Link href="#" className="inline-block py-2 px-4 rounded-lg shadow-sm hover:bg-blue-700 hover:text-white">
-            Escribe un DM
-          </Link>
-          <Link href="#" className="inline-block py-2 px-4 rounded-lg shadow-sm hover:bg-blue-700 hover:text-white">
-            Shop
-          </Link>
+    <header className='absolute z-30 w-full bg-transparent p-4 '>
+      <div className='mx-auto grid grid-cols-1 md:grid-cols-3 items-center justify-between'>
+        <div className='hidden md:flex'>
+          {routes.map(({href,text})=>{
+            return (
+              <Link 
+              className="mx-2 inline-block py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 hover:text-white"
+              href={href}>
+                {text}
+              </Link> 
+            );
+          })}
         </div>
-        <div className="flex-shrink-0 w-full lg:w-auto mx-5">
-          <Link href="/" className="font-bold hover:underline">
+        <div className='flex align-center justify-center'>
+          <Link href={'/'}>
             Home
           </Link>
         </div>
+        <div className='hidden md:flex justify-end'>
+          <button className='mx-2 py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 hover:text-white'>currency</button>
+          <button className='mx-2 py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 hover:text-white '>darkmode</button>
+        </div>
       </div>
+    </header>
   )
 }
