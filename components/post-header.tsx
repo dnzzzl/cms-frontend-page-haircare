@@ -12,7 +12,7 @@ export default function PostHeader({
   categories,
 }) {
   return (
-    <>
+    <div className='mt-28'>
       <PostTitle>{title}</PostTitle>
       <div className="hidden md:block md:mb-12">
         <Avatar author={author} />
@@ -29,6 +29,6 @@ export default function PostHeader({
           <Categories categories={categories} />
         </div>
       </div>
-    </>
+    </div>
   )
 }

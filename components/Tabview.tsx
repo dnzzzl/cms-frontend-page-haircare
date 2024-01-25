@@ -24,13 +24,13 @@ export default function TabView({ children, labels = [] }:Props) {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <ul className="flex justify-center p-4 bg-gray-200 rounded-t border-b border-gray-300">
+    <div >
+      <ul className="flex justify-center p-4 backdrop-blur-sm " >
         {labels?.map((label, index) => (
           <li key={index} className='p-2'>
             <button 
               onClick={handleClick(index)}
-              className={`transition-all duration-700 ease-in-out
+              className={`transition-all duration-500 ease-in-out
                 ${activeIndex === index ? 'bg-blue-500 text-white px-4 py-2 rounded' : 'bg-gray-200 text-gray-800 px-4 py-2 rounded'}
               `}>
               {label}

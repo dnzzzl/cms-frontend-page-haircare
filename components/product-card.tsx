@@ -14,7 +14,7 @@ export interface Product {
 
 const ProductCard: FC<Product> = (product : Product) => {
   return (
-    <div className='min flex flex-col justify-between m-5 rounded-lg shadow-lg bg-rose-400 bg-opacity-25 hover:shadow-xl transition-all duration-200 hover:scale-105 ease-in-out'>
+    <div className='min flex flex-col justify-between m-5 rounded-lg shadow-lg bg-rose-400/25 hover:shadow-xl transition-all duration-200 hover:scale-105 ease-in-out'>
         <Link key={product.id} href="/shop/[id]" as={`/shop/${product.id}`}>
             <div className="p-4">
                 <Image
