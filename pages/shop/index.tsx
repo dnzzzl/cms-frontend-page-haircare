@@ -37,7 +37,17 @@ const Page: FC<ShopProps> =({ allProducts , preview }: ShopProps) => {
 
   return(
     <Layout preview={preview}>
-      <Intro title={title} subtitle={subtitle} image={heroImgUrl} left/>
+      <Intro image_data={{imageUrl:heroImgUrl,alt:"Hero image"}} left>
+        <div 
+        className="flex-col flex items-center justify-end bg-cover px-8 lg:mt-20 pt-20 lg:pt-0 mx-0 sm:w-3/4 md:w-1/2 relative transition-all ease-in-out duration-500">
+          <h1 className="text-left text-6xl lg:text-8xl tracking-tighter leading-tight">                                      
+            {title}                                                         
+          </h1>
+          <h4 className="text-center text-xl md:text-2xl  my-5 ">                                                            
+            {subtitle}                                                       
+          </h4>   
+        </div>
+      </Intro>
       <ShopGrid allProducts={allProducts} preview={preview}></ShopGrid>
     </Layout>
   );

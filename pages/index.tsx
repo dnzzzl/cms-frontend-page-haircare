@@ -24,7 +24,20 @@ export default function Index({ allPosts: { edges }, preview }) {
       <Head>
         <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
       </Head>
-      <Intro image={heroImgUrl} title={title} subtitle={subtitle}/>
+      <Intro image_data={{imageUrl:heroImgUrl,alt:"Hero_image"}}>
+        <div 
+        className="flex-col flex items-center justify-between bg-cover px-8 py-14 mt-14 lg:mt-20 mx-0 sm:w-3/4 md:w-1/2 relative transition-all ease-in-out duration-500">
+          <h1 className="text-left text-6xl lg:text-8xl tracking-tighter leading-tight">                                      
+            {title}                                                         
+          </h1>
+          <h4 className="text-center text-xl md:text-2xl  my-5 ">                                                            
+            {subtitle}                                                       
+          </h4>
+          <div className=" rounded-lg ">
+            <button className="my-4 px-5 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 lg:px-10 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get bundle</button>
+          </div>    
+        </div>
+      </Intro>
       <TabView labels={["shop","blog"]}>
         <div>
           <ShopGrid allProducts={allProducts} preview={preview} />

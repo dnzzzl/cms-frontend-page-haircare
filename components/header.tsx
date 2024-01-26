@@ -20,7 +20,7 @@ export default function Header() {
 
     
   return (
-    <header onBlur={() => setIsOpen(false)} className='absolute z-30 w-full bg-transparent py-4 '>
+    <header  className='absolute z-10 w-full bg-transparent py-4 '>
       <div className='mx-auto grid grid-cols-1 md:grid-cols-3 items-center justify-between'>
         <div className='hidden md:flex'>
           {routes.map(({href,text})=>{
@@ -35,7 +35,7 @@ export default function Header() {
         </div>
         <div className='flex justify-center md:hidden'>
           <button onClick={() => setIsOpen(!isOpen)}>
-              <div className='h-16 w-24 rounded-lg z-50'>
+              <div className='h-16 w-24 rounded-lg'>
                   <Image
                     src={"http://localhost:8889/wp-content/uploads/2024/01/enhanced-image-3-1-e1706202239482.png"}
                     alt="logo"
@@ -62,7 +62,6 @@ export default function Header() {
       </div>
       {isOpen && <Drawer isOpen={isOpen} callback={()=>{
         setIsOpen(false)
-        console.log("clicked drawer",isOpen)
         }}>
         <AnimatedLinks routes={routes}/>
       </Drawer>}

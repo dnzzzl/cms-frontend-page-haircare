@@ -18,7 +18,7 @@ export default function Drawer({children,isOpen,callback}:Props){
     
         const tl = gsap.timeline({ paused: true});
         
-        tl.fromTo(navLinkContainer.current,{top:"-100vh"}, { y:0, top:0, duration: .5, ease: 'power2.inOut' });
+        tl.fromTo(navLinkContainer.current,{top:"-180"}, { y:0, top:0, duration: .5, ease: 'power2.inOut' });
         tl.fromTo(".gsap-animated-link", {opacity:0, x:"-40%"}, {opacity: 1, x:0, duration: .2, ease: "back.out", stagger:-.1},"-=.2")
         
         if (isOpen) {
@@ -29,7 +29,7 @@ export default function Drawer({children,isOpen,callback}:Props){
      }, [isOpen]);
 
     return (
-    <nav ref={navLinkContainer} className='absolute top-[-100vh] flex flex-col w-full bg-rose-400/50' onClick={callback}>
+    <nav ref={navLinkContainer} className='absolute flex flex-col w-full bg-rose-400/50' onClick={callback}>
             {children}
     </nav> )
 } 
