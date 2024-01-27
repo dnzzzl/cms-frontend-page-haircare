@@ -1,9 +1,6 @@
 
  import React from "react"
  import Link from "next/link"
- import { gsap, Power2 } from 'gsap';
-import { useGSAP } from "@gsap/react";
-import { easeIn } from "framer-motion";
 
  type Props = {
     routes: {
@@ -12,7 +9,7 @@ import { easeIn } from "framer-motion";
     }[]
     
 }
-export default function AnimatedLinks ({routes} : Props) {    
+export default function LinkList ({routes} : Props) {    
     return(
       <>
           {routes.map(({href,text})=>{

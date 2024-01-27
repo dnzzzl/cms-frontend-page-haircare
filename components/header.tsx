@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link'
 import Image from 'next/image';
-import AnimatedLinks from './animated-link';
+import AnimatedLinks from './link-list';
 import Drawer from './drawer';
 
 export default function Header() {
