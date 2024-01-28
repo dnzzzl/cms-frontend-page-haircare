@@ -28,7 +28,7 @@ export default function Drawer({children,isOpen,callback}:Props){
      }, [isOpen]);
 
     return (
-    <nav ref={navLinkContainer} className={`absolute top-0 ${isOpen?"":"translate-y-[-30vh]"} transition-all duration-800 flex flex-col w-full bg-rose-400/50`} onClick={callback}>
+    <nav ref={navLinkContainer} className={`absolute top-0 ${isOpen?"":"translate-y-[-40vh]"} transition-all duration-500 flex flex-col w-full bg-rose-400/50`} onClick={callback}>
             {children}
     </nav> )
 } 

@@ -18,6 +18,21 @@ export default function Header() {
     text:"Nosotros"
     }]
 
+  const routesMobile = [{
+    href:"/posts",
+    text: "Blog"
+  },{
+    href:"/shop",
+    text: "Shop"
+  },{
+    href:"/nosotros",
+    text:"Nosotros"
+    },
+  {
+    href:"/",
+    text:"Regresar"
+  }]
+
     
   return (
     <header  className='absolute z-10 w-full bg-transparent py-4 '>
@@ -63,7 +78,7 @@ export default function Header() {
       <Drawer isOpen={isOpen} callback={()=>{
         setIsOpen(false)
         }}>
-        <AnimatedLinks routes={routes}/>
+        <AnimatedLinks routes={routesMobile}/>
       </Drawer>
     </header>
   )
