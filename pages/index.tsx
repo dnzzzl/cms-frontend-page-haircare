@@ -40,12 +40,17 @@ export default function Index({ allPosts: { edges }, preview }) {
       </Intro>
       <TabView labels={["shop","blog"]}>
         <div>
+          <h2 className="text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
+            Shop
+          </h2>
           <ShopGrid allProducts={allProducts} preview={preview} />
         </div>
         <div 
         className=''
         >
-          blog section
+          <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
+            Featured
+          </h2>
           {heroPost && (
             <HeroPost
               title={heroPost.title}

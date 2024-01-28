@@ -48,6 +48,9 @@ const Page: FC<ShopProps> =({ allProducts , preview }: ShopProps) => {
           </h4>   
         </div>
       </Intro>
+      <h2 className="m-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
+        Shop
+      </h2>
       <ShopGrid allProducts={allProducts} preview={preview}></ShopGrid>
     </Layout>
   );

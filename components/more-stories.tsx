@@ -12,7 +12,7 @@ export default function MoreStories({ posts }) {
           <HeroPost
             key={node.slug}
             title={node.title}
-            coverImage={node.featuredImage}
+            coverImage={node.featuredImage?.node.sourceUrl}
             date={node.date}
             author={node.author}
             slug={node.slug}

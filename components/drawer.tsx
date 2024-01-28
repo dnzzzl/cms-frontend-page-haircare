@@ -2,11 +2,11 @@
 
 import {useGSAP} from  "@gsap/react"
 import gsap from "gsap";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 type Props = {
+    isOpen:boolean,
     children: React.ReactNode,
-    isOpen: boolean,
     callback: React.MouseEventHandler
 }
 
@@ -15,21 +15,20 @@ export default function Drawer({children,isOpen,callback}:Props){
     
     useGSAP(() => {
         if (!navLinkContainer.current) return;
-    
+        
         const tl = gsap.timeline({ paused: true});
         
-        tl.fromTo(navLinkContainer.current,{top:"-180"}, { y:0, top:0, duration: .5, ease: 'power2.inOut' });
-        tl.fromTo(".gsap-animated-link", {opacity:0, x:"-40%"}, {opacity: 1, x:0, duration: .2, ease: "back.out", stagger:-.1},"-=.2")
+        tl.fromTo(".gsap-animated-link", {opacity:0, x:"-40%"}, {opacity: 1, x:0, duration: .5, ease: "back.out", stagger:-.1})
         
         if (isOpen) {
           tl.play();
         } else {
-          tl.reverse(.5);
+          tl.reverse();
         }
      }, [isOpen]);
 
     return (
-    <nav ref={navLinkContainer} className='absolute flex flex-col w-full bg-rose-400/50' onClick={callback}>
+    <nav ref={navLinkContainer} className={`absolute top-0 ${isOpen?"":"translate-y-[-30vh]"} transition-all duration-800 flex flex-col w-full bg-rose-400/50`} onClick={callback}>
             {children}
     </nav> )
 } 

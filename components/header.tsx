@@ -60,11 +60,11 @@ export default function Header() {
         <div className='hidden md:flex justify-end'>
         </div>
       </div>
-      {isOpen && <Drawer isOpen={isOpen} callback={()=>{
+      <Drawer isOpen={isOpen} callback={()=>{
         setIsOpen(false)
         }}>
         <AnimatedLinks routes={routes}/>
-      </Drawer>}
+      </Drawer>
     </header>
   )
 }
