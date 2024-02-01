@@ -24,7 +24,10 @@ export default function Intro( {children,image_data, left} : IntroProps ) {
         src={image_data.imageUrl}
         alt={image_data.imageUrl}
         objectFit='cover'
+        sizes="100vw"
         layout='fill'
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+        placeholder='blur'
       />}
      {children}
     </section>

@@ -5,6 +5,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { getProductsMockData } from '../../lib/api'
 import Image from 'next/image'
 import ImageSlider from '../../components/image-slider'
+import Link from 'next/link'
 
 type Props = {      
     id: number,
@@ -19,6 +20,8 @@ type Props = {
 export const ProductDetailsPage : FC<Props> = ({preview,name, short_description,long_description,price,images}:Props) =>{
     const router = useRouter();
     const id = router.query.id;
+    const orderHref = `https://wa.me/18298449486?text=Hola%20%3A%29%20me%20interesa%3A%20${name}`
+
 
     return (
         <Layout preview={preview}>
@@ -35,7 +38,7 @@ export const ProductDetailsPage : FC<Props> = ({preview,name, short_description,
                   <p>{short_description}</p>
                   <div className='w-full flex justify-around mt-5 items-center p-4'>
                       <span><p className="mt-1 text-sm ">{price}</p></span>
-                      <span><button className='bg-blue-500 text-white text-sm font-bold p-2 rounded  hover:bg-blue-700 transition-colors duration-200'>Order Now</button></span>
+                      <span><Link href={orderHref} className='bg-blue-500 text-white text-sm font-bold p-2 rounded  hover:bg-blue-700 transition-colors duration-200'>Order Now</Link></span>
                   </div>  
               </div>
             </div>

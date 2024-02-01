@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image';
 import AnimatedLinks from './link-list';
 import Drawer from './drawer';
+import { LOGO_SEETHRU_IMG_URL } from '../lib/constants';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,6 +57,7 @@ export default function Header() {
                     alt="logo"
                     width={1720}
                     height={1158}
+                    sizes='50vw'
                     className="h-full w-full scale-125 hover:scale-100  transition-all ease-in-out "
                   />
               </div>
@@ -64,10 +66,11 @@ export default function Header() {
         <div className='justify-center hidden md:flex'>
           <Link href={'/'} className='h-16 w-24 rounded-lg'>
               <Image
-                src={"http://localhost:8889/wp-content/uploads/2024/01/enhanced-image-3-1-e1706202239482.png"}
+                src={LOGO_SEETHRU_IMG_URL}
                 alt="logo"
                 width={1720}
                 height={1158}
+                sizes='50vw'
                 className="h-full w-full scale-125 hover:scale-100  transition-all ease-in-out "
               />
           </Link>
