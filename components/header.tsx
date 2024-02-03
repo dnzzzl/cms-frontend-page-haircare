@@ -53,7 +53,7 @@ export default function Header() {
           <button onClick={() => setIsOpen(!isOpen)}>
               <div className='h-16 w-24 rounded-lg'>
                   <Image
-                    src={"http://localhost:8889/wp-content/uploads/2024/01/enhanced-image-3-1-e1706202239482.png"}
+                    src={LOGO_SEETHRU_IMG_URL}
                     alt="logo"
                     width={1720}
                     height={1158}

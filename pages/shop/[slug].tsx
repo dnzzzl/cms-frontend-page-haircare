@@ -1,30 +1,18 @@
-import {FC} from 'react'
 import Layout from '../../components/layout'
-import { useRouter } from 'next/router'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { getProductsMockData } from '../../lib/api'
+import { getProductsMockData, getSimpleProductsFromGraphQL } from '../../lib/api'
 import Image from 'next/image'
 import ImageSlider from '../../components/image-slider'
 import Link from 'next/link'
+import { Product } from '../../components/product-card'
 
-type Props = {      
-    id: number,
-    name: string,
-    short_description: string,
-    long_description: string,
-    price: string,
-    preview: boolean,
-    images:string[],
-}       
+export default function ProductDetailsPage ({name, short_description,long_description,price,images}:Product) {
 
-export const ProductDetailsPage : FC<Props> = ({preview,name, short_description,long_description,price,images}:Props) =>{
-    const router = useRouter();
-    const id = router.query.id;
     const orderHref = `https://wa.me/18298449486?text=Hola%20%3A%29%20me%20interesa%3A%20${name}`
 
 
     return (
-        <Layout preview={preview}>
+        <Layout preview={false}>
             <div className='flex flex-col-reverse md:flex-row py-5 mb-5 mt-28  mx-5 gap-5 md:max-w-4xl md:mx-auto'>
               <div className='mx-auto md:ml-5 flex flex-col justify-center w-full'> 
                 <ImageSlider images={images}/>
@@ -50,8 +38,8 @@ export const ProductDetailsPage : FC<Props> = ({preview,name, short_description,
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 
-    const products = await getProductsMockData();
-    const product = products.edges.find(product => product.id === Number(params.id));
+    const products = await getSimpleProductsFromGraphQL();
+    const product = products.edges.find(product => product.slug === params.slug);
     
     if (!product) {
       return {
@@ -71,9 +59,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const allProducts = await getProductsMockData()
   
     return {
-      paths: allProducts.edges.map(({ id }) => `/shop/${id}`) || [],
+      paths: allProducts.edges.map(({ slug }) => `/shop/${slug}`) || [],
       fallback: true,
     }
   }
-
-  export default ProductDetailsPage;

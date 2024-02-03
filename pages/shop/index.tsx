@@ -4,11 +4,12 @@ import { motion } from 'framer-motion'
 import Layout from '../../components/layout'
 import { GetStaticProps } from 'next'
 import {Product} from '../../components/product-card'
-import { getProductsMockData } from '../../lib/api'
+import { getProductsMockData, getSimpleProductsFromGraphQL } from '../../lib/api'
 import { FC } from 'react';
-import { ShopGrid } from '../../components/shop-section-grid'
+import ShopGrid from '../../components/shop-section-grid'
 import Intro from '../../components/intro'
 import { sub } from 'date-fns'
+import { HERO_SHOP_IMG_URL } from '../../lib/constants'
 
 
 
@@ -20,7 +21,7 @@ export interface ShopProps {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allProducts = getProductsMockData();
+  const allProducts = getSimpleProductsFromGraphQL();
 
   return {
     props: {
@@ -33,11 +34,10 @@ export const getStaticProps: GetStaticProps = async () => {
 const Page: FC<ShopProps> =({ allProducts , preview }: ShopProps) => {
   const title = "Elizabeth Haircare"
   const subtitle = "Productos para mostrar la mejor versión de tu cabello."
-  const heroImgUrl = 'http://localhost:8889/wp-content/uploads/2024/01/hero-01.png'
 
   return(
     <Layout preview={preview}>
-      <Intro image_data={{imageUrl:heroImgUrl,alt:"Hero image"}} left>
+      <Intro image_data={{imageUrl:HERO_SHOP_IMG_URL,alt:"Hero image"}} left>
         <div 
         className="flex-col flex items-center justify-end bg-cover px-8 lg:mt-20 pt-20 lg:pt-0 mx-0 sm:w-3/4 md:w-1/2 relative transition-all ease-in-out duration-500">
           <h1 className="text-left text-6xl lg:text-8xl tracking-tighter leading-tight">                                      
@@ -51,7 +51,7 @@ const Page: FC<ShopProps> =({ allProducts , preview }: ShopProps) => {
       <h2 className="m-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
         Shop
       </h2>
-      <ShopGrid allProducts={allProducts} preview={preview}></ShopGrid>
+      <ShopGrid allProducts={allProducts.edges}/>
     </Layout>
   );
 }

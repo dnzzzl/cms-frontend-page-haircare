@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export interface Product {
-    id: number
+    slug: string,
     images: string[],
     name: string,
     short_description: string,
@@ -16,7 +16,7 @@ const ProductCard: FC<Product> = (product : Product) => {
     const orderHref = `https://wa.me/18298449486?text=Hola%20%3A%29%20me%20interesa%3A%20${product.name}`
   return (
     <div className='flex flex-col justify-between rounded-lg shadow-lg bg-rose-400/25 hover:shadow-xl transition-all duration-200 hover:scale-105 ease-in-out'>
-        <Link key={product.id} href="/shop/[id]" as={`/shop/${product.id}`}>
+        <Link key={product.slug} href={`/shop/${product.slug}`}>
             <div className="p-4">
                 <Image
                 src={product.images[0]}

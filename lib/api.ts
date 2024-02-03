@@ -213,19 +213,69 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
   return data
 }
 
+export async function getSimpleProductsFromGraphQL(){
+  const data = await fetchAPI(
+    `query GetSimpleProducts {
+      products {
+        edges {
+          node {
+            ... on SimpleProduct {
+              id
+              name
+              price
+              shortDescription
+              galleryImages {
+                edges {
+                  node {
+                    sourceUrl
+                  }
+                }
+              }
+            }
+            description
+            slug
+            image {
+              sourceUrl
+            }
+          }
+        }
+      }
+    }`
+  )
+
+  let products = data.products.edges.map(({node}) => {
+    let images = [];
+    if (node.image?.sourceUrl) {
+      images.push(node.image.sourceUrl);
+    }
+    if (node.simpleProduct?.galleryImages?.edges) {
+      images.push(...node.simpleProduct.galleryImages.edges.map(edge => edge.node.sourceUrl));
+    }
+    return {
+      "slug": node.slug,
+      "name": node.name,
+      "short_description": node.shortDescription,
+      "long_description": node.description,
+      "price": node.price,
+      "images": images,
+    }
+  });
+  return { edges: products };
+}
+
 export function getProductsMockData() {
   const products:Product[] = [
     {
-      "id": 1,
-      "images": ["http://localhost:8889/wp-content/uploads/2024/01/858dbcbd-1bde-4c5a-bfec-3cad829cccd3.jpg"],
+      "slug": "clean-me-up",
+      "images": ["http://wordpress.elizabeth-haircare.com/wp-content/uploads/2024/01/858dbcbd-1bde-4c5a-bfec-3cad829cccd3.jpg"],
       "name": "Clean Me Up",
       "short_description": "Limpia a profundidad sin maltratar tu cabello. Con un aroma delicioso que disfrutarás. Hecho a base de hierbas estimulantes del crecimiento.",
       "long_description": "Experimenta una limpieza profunda que mime tu cabello con nuestro champú Clean Me Up.\nEstá elaborado con una fragancia irresistiblemente encantadora que convertirá tu rutina de cuidado del cabello en una experiencia sensorial.\nEsta fórmula única, hecha con hierbas estimulantes, tiene como objetivo promover el crecimiento del cabello mientras lo mantiene increíblemente limpio.\n\nInstrucciones de uso:\n1. Moja completamente tu cabello.\n2. Vierte una cantidad adecuada de champú en tus manos.\n3. Aplica el champú en el cuero cabelludo, masajeándolo suavemente.\n4. Deja que la espuma cremosa se deslice por tus mechones.\n5. Enjuaga y repite si es necesario.\n6. Enjuaga completamente con abundante agua.\n\nEvita frotar el champú bruscamente en tus mechones, ya que podría provocar sequedad innecesaria.\nCon Clean Me Up, asegúrate de una limpieza delicada que ama tu cabello tanto como tú lo haces.",
       "price": "$595"
     },
     {
-      "id": 2,
-      "images": ["http://localhost:8889/wp-content/uploads/2024/01/770a0e8f-b783-4418-b00a-f507202d55c8.jpg"],
+      "slug": "less-tangle",
+      "images": ["http://wordpress.elizabeth-haircare.com/wp-content/uploads/2024/01/770a0e8f-b783-4418-b00a-f507202d55c8.jpg"],
       "name": "Less Tangle",
       "short_description": " Descubre un cabello suave y manejable con nuestro acondicionador Less Tangle. Elaborado con ingredientes enriquecedores, este acondicionador ofrece una hidratación esencial, lo que da como resultado un cabello fácil de peinar y protegido contra el calor.",
       "long_description":"El acondicionador Less Tangle juega un papel esencial en tu rutina de cuidado del cabello al sellar los efectos beneficiosos de tu mascarilla o tratamiento capilar. Con solo un poco de producto puedes desenredar las hebras más rebeldes. Cuida tu cabello con nuestra fórmula ligera pero profundamente nutritiva adecuada para todo tipo de cabello.\n\nInstrucciones de uso:\n1. Después de lavarse el cabello con champú o aplicarse una mascarilla para el cabello, aplique el acondicionador Less Tangle.\n2. Desenreda tu cabello comenzando desde abajo usando un peine de dientes anchos.\n3. Enjuague generosamente con agua.\n\nCon el acondicionador Less Tangle, disfruta de un cuidado nutritivo que respeta la belleza natural de tu cabello.",

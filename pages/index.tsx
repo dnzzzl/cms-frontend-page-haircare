@@ -5,19 +5,18 @@ import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
-import { getAllPostsForHome, getProductsMockData } from '../lib/api'
+import { getAllPostsForHome, getProductsMockData, getSimpleProductsFromGraphQL } from '../lib/api'
 import {HERO_IMG_URL} from '../lib/constants'
 import { sub } from 'date-fns'
 import TabView from '../components/Tabview'
-import { ShopGrid } from '../components/shop-section-grid'
+import ShopGrid from '../components/shop-section-grid'
 
-export default function Index({ allPosts: { edges }, preview }) {
+export default function Index({ allPosts: { edges }, allProducts, preview }) {
   const heroPost = edges[0]?.node
   const morePosts = edges.slice(1)
   const title = "Elizabeth Haircare"
   const subtitle = "Productos para mostrar la mejor versión de tu cabello."
-  const allProducts = getProductsMockData();
-
+  console.log("products", allProducts)
   return (
     <Layout preview={preview}>
       <Head>
@@ -42,7 +41,7 @@ export default function Index({ allPosts: { edges }, preview }) {
           <h2 className="text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
             Shop
           </h2>
-          <ShopGrid allProducts={allProducts} preview={preview} />
+          <ShopGrid allProducts={allProducts?.edges} />
         </div>
         <div 
         className=''
@@ -70,8 +69,10 @@ export default function Index({ allPosts: { edges }, preview }) {
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const allPosts = await getAllPostsForHome(preview)
+  const allProducts = await getSimpleProductsFromGraphQL();
+
   return {
-    props: { allPosts, preview },
+    props: { allPosts, allProducts, preview },
     revalidate: 10,
   }
 }
