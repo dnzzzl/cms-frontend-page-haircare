@@ -25,7 +25,7 @@ export default function ProductDetailsPage ({name, short_description,long_descri
                 <div className=''>
                   <Carousel>
                     <CarouselContent className="overflow-hidde rounded-lg mx-auto relative">
-                      {images.map((url)=>{
+                      {images?.map((url)=>{
                         return(
                           <CarouselItem>
                             <Image
