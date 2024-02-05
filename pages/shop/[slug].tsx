@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const allProducts = await getProductsMockData()
+    const allProducts = await getSimpleProductsFromGraphQL()
   
     return {
       paths: allProducts.edges.map(({ slug }) => `/shop/${slug}`) || [],
