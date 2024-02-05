@@ -1,16 +1,20 @@
-# An Incremental Static Regeneration Blog Example Using Next.js and WordPress
+# An Incremental Static Regeneration Blog Using Next.js and WordPress
 
-This example showcases Next.js's [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration) feature using [WordPress](https://wordpress.org) as the data source.
+This example showcases Next.js's [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration) feature allowing for Server Side Rendering of the frontend UI, while using [WordPress](https://wordpress.org) as the data source.
 
-## Demo
+We chose this decoupled architecture in order to take advantage of the practicality that Wordpress offers for content publishing, structure, and built-in SQL database. Allowing for a simplified workflow when adding content.
+Having Next.js as the frontend framework allows for continous development and integration pipeline. 
 
-### [https://next-blog-wordpress.vercel.app](https://next-blog-wordpress.vercel.app)
+## Live Site
 
-## Deploy your own
+### [elizabeth-haircare.com](elizabeth-haircare.com)
 
-Once you have access to [the environment variables you'll need](#step-3-set-up-environment-variables), deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+## Deployment process
+Our choices reflect our minimal scalability needs as well as a priority on lowering platform costs in order to achieve the goal of exposing our website for a minimal cost.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress&project-name=cms-wordpress&repository-name=cms-wordpress&env=WORDPRESS_API_URL&envDescription=Required%20to%20connect%20the%20app%20with%20WordPress&envLink=https://vercel.link/cms-wordpress-env)
+AWS Lightsail was chosen for Wordpress hosting on account of its simplicity and affordability, having a decoupled architechture means that our backed and frontend are not dependent on each other which allows for choosing a simple solution at launch with the ability to scale or pivot completely while keeping api compatibility managed by Wordpress REST API or GraphQL endpoint with the use of the plugin WPGraphQL.
+
+Vercel is the go-to platform for easy deployment and integration with Next.js applications. The platform handles the build process, hosting of the generated static files, caching and other logic that is abstracted away, pricing for small projects is free.
 
 ### Related examples
 
@@ -37,60 +41,26 @@ Once you have access to [the environment variables you'll need](#step-3-set-up-e
 - [Blog Starter](/examples/blog-starter)
 - [WordPress](/examples/cms-wordpress)
 
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example cms-wordpress cms-wordpress-app
-```
-
-```bash
-yarn create next-app --example cms-wordpress cms-wordpress-app
-```
-
-```bash
-pnpm create next-app --example cms-wordpress cms-wordpress-app
-```
 
 ## Configuration
 
-### Step 1. Prepare your WordPress site
+### Step 1. Preparation of your WordPress site
 
-First, you need a WordPress site. There are many solutions for WordPress hosting, such as [WP Engine](https://wpengine.com/) and [WordPress.com](https://wordpress.com/).
+First, we need a WordPress site. There are many solutions for WordPress hosting, such as [WP Engine](https://wpengine.com/) and [WordPress.com](https://wordpress.com/), we have opted for Amazon Lightsail which offers a Wordpress platform.
 
-Once the site is ready, you'll need to install the [WPGraphQL](https://www.wpgraphql.com/) plugin. It will add GraphQL API to your WordPress site, which we'll use to query the posts. Follow these steps to install it:
+Once the site is ready, you'll need to install needed plugins for your use case, [WPGraphQL](https://www.wpgraphql.com/) plugin is essential for integrating a GraphQL API to your WordPress site, which we'll use to query data from the backend.
 
-- Download the [WPGraphQL repo](https://github.com/wp-graphql/wp-graphql) as a ZIP archive.
-- Inside your WordPress admin, go to **Plugins** and then click **Add New**.
+Our domain is configured with a wordpress. subdomain that points to the Wordpress installation.
 
-![Add new plugin](./docs/plugins-add-new.png)
+#### GraphQL
 
-- Click the **Upload Plugin** button at the top of the page and upload the WPGraphQL plugin.
-
-![Upload new plugin](./docs/plugins-upload-new.png)
-
-- Once the plugin has been added, activate it from either the **Activate Plugin** button displayed after uploading or from the **Plugins** page.
-
-![WPGraphQL installed](./docs/plugin-installed.png)
-
-#### GraphiQL
-
-The [WPGraphQL](https://www.wpgraphql.com/) plugin also gives you access to a GraphQL IDE directly from your WordPress Admin, allowing you to inspect and play around with the GraphQL API.
+The [WPGraphQL](https://www.wpgraphql.com/) plugin also gives you access to a GraphQL IDE directly from your WordPress Admin, allowing you to inspect and tailor your requests to the graphql API endpoint.
 
 ![WPGraphiQL page](./docs/wp-graphiql.png)
 
 ### Step 2. Populate Content
 
-Inside your WordPress admin, go to **Posts** and start adding new posts:
-
-- We recommend creating at least **2 posts**
-- Use dummy data for the content
-- Pick an author from your WordPress users
-- Add a **Featured Image**. You can download one from [Unsplash](https://unsplash.com/)
-- Fill the **Excerpt** field
-
-![New post](./docs/new-post.png)
+Inside our WordPress admin is where our content is published, we go to **Posts** and start adding new posts, **Products** for products, **Media**, etc. Leveraging wordpress for its ease of use allows for continous publishing with no further changes to the UI.
 
 When you’re done, make sure to **Publish** the posts.
 
@@ -98,15 +68,7 @@ When you’re done, make sure to **Publish** the posts.
 
 ### Step 3. Set up environment variables
 
-Copy the `.env.local.example` file in this directory to `.env.local` (which will be ignored by Git):
-
-```bash
-cp .env.local.example .env.local
-```
-
-Then open `.env.local` and set `WORDPRESS_API_URL` to be the URL to your GraphQL endpoint in WordPress. For example: `https://myapp.wpengine.com/graphql`.
-
-Your `.env.local` file should look like this:
+Configure local environment variables within the frontend deployment environment.
 
 ```bash
 WORDPRESS_API_URL=...
@@ -116,21 +78,15 @@ WORDPRESS_API_URL=...
 # WORDPRESS_PREVIEW_SECRET=
 ```
 
-### Step 4. Run Next.js in development mode
+### Step 4. Profit
 
-```bash
-npm install
-npm run dev
+To deploy your local project to Vercel, push it to GitHub/GitLab/Bitbucket and [import to Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example).
 
-# or
+When you import your project on Vercel, make sure to click on **Environment Variables** and set them to match your `.env.local` file.
 
-yarn install
-yarn dev
-```
+Our blog should be up and running on [elizabeth-haircare.com](elizabeth-haircare.com)
 
-Your blog should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
-
-### Step 5. Add authentication for Preview Mode (Optional)
+### Upcoming/pending changes: Add authentication for Preview Mode (Optional)
 
 **This step is optional.** By default, the blog will work with public posts from your WordPress site. Private content such as unpublished posts and private fields cannot be retrieved. To have access to unpublished posts you'll need to set up authentication.
 
@@ -181,39 +137,3 @@ WORDPRESS_API_URL=...
 WORDPRESS_AUTH_REFRESH_TOKEN=...
 WORDPRESS_PREVIEW_SECRET=...
 ```
-
-**Important:** Restart your Next.js server to update the environment variables.
-
-### Step 6. Try preview mode
-
-On your WordPress admin, create a new post like before, but **do not publish** it.
-
-Now, if you go to `http://localhost:3000`, you won’t see the post. However, if you enable **Preview Mode**, you'll be able to see the change ([Documentation](https://nextjs.org/docs/advanced-features/preview-mode)).
-
-To enable Preview Mode, go to this URL:
-
-```
-http://localhost:3000/api/preview?secret=<secret>&id=<id>
-```
-
-- `<secret>` should be the string you entered for `WORDPRESS_PREVIEW_SECRET`.
-- `<id>` should be the post's `databaseId` field, which is the integer that you usually see in the URL (`?post=18` → 18).
-- Alternatively, you can use `<slug>` instead of `<id>`. `<slug>` is generated based on the title.
-
-You should now be able to see this post. To exit Preview Mode, you can click on **Click here to exit preview mode** at the top.
-
-### Step 7. Deploy on Vercel
-
-You can deploy this app to the cloud with [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-#### Deploy Your Local Project
-
-To deploy your local project to Vercel, push it to GitHub/GitLab/Bitbucket and [import to Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example).
-
-**Important**: When you import your project on Vercel, make sure to click on **Environment Variables** and set them to match your `.env.local` file.
-
-#### Deploy from Our Template
-
-Alternatively, you can deploy using our template by clicking on the Deploy button below.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress&project-name=cms-wordpress&repository-name=cms-wordpress&env=WORDPRESS_API_URL&envDescription=Required%20to%20connect%20the%20app%20with%20WordPress&envLink=https://vercel.link/cms-wordpress-env)

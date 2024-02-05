@@ -8,7 +8,7 @@ import { Product } from '../../components/product-card'
 
 export default function ProductDetailsPage ({name, short_description,long_description,price,images}:Product) {
 
-    const orderHref = `https://wa.me/18298449486?text=Hola%20%3A%29%20me%20interesa%3A%20${name}`
+    const orderHref = `https://wa.me/18094618336?text=Hola%20%3A%29%20me%20interesa%3A%20${name}`
 
 
     return (
@@ -23,10 +23,10 @@ export default function ProductDetailsPage ({name, short_description,long_descri
               <div className='w-full mr-5'>
                 <div className='md:sticky my-5 top-5 bg-rose-400/25  shadow-xl  p-5 rounded-lg h-min mx-auto max-w-sm'>
                   <h1 className='text-2xl font-bold pb-2'>{name}</h1>
-                  <p>{short_description}</p>
+                  <div>{short_description}</div>
                   <div className='w-full flex justify-around mt-5 items-center p-4'>
                       <span><p className="mt-1 text-sm ">{price}</p></span>
-                      <span><Link href={orderHref} className='bg-blue-500 text-white text-sm font-bold p-2 rounded  hover:bg-blue-700 transition-colors duration-200'>Order Now</Link></span>
+                      <span><Link href={orderHref} className='bg-green-600 text-white text-sm font-bold p-2 rounded  hover:bg-green-700 transition-colors duration-200'>Order Now</Link></span>
                   </div>  
               </div>
             </div>

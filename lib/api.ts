@@ -223,7 +223,7 @@ export async function getSimpleProductsFromGraphQL(){
               id
               name
               price
-              shortDescription
+              shortDescription(format: RAW)
               galleryImages {
                 edges {
                   node {
@@ -232,7 +232,7 @@ export async function getSimpleProductsFromGraphQL(){
                 }
               }
             }
-            description
+            description(format: RAW)
             slug
             image {
               sourceUrl

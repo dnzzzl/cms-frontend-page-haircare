@@ -1,14 +1,9 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
 import Layout from '../../components/layout'
 import { GetStaticProps } from 'next'
 import {Product} from '../../components/product-card'
-import { getProductsMockData, getSimpleProductsFromGraphQL } from '../../lib/api'
-import { FC } from 'react';
+import { getSimpleProductsFromGraphQL } from '../../lib/api'
 import ShopGrid from '../../components/shop-section-grid'
 import Intro from '../../components/intro'
-import { sub } from 'date-fns'
 import { HERO_SHOP_IMG_URL } from '../../lib/constants'
 
 
@@ -21,7 +16,7 @@ export interface ShopProps {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allProducts = getSimpleProductsFromGraphQL();
+  const allProducts = await getSimpleProductsFromGraphQL();
 
   return {
     props: {
@@ -31,7 +26,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Page: FC<ShopProps> =({ allProducts , preview }: ShopProps) => {
+export default function Page ({ allProducts , preview }: ShopProps) {
   const title = "Elizabeth Haircare"
   const subtitle = "Productos para mostrar la mejor versión de tu cabello."
 
@@ -55,5 +50,3 @@ const Page: FC<ShopProps> =({ allProducts , preview }: ShopProps) => {
     </Layout>
   );
 }
-
-export default Page;

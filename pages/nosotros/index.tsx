@@ -3,12 +3,13 @@ import Layout from "../../components/layout";
 import preview from "../api/preview";
 import Intro from "../../components/intro";
 import Image from "next/image";
+import { LOGO_SEETHRU_IMG_URL } from "../../lib/constants";
 type Props = {
     preview: any,
 }
 
 export default function AboutPage({ preview} : Props){
-   const title = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio voluptatibus alias, eum, quos vero nihil iusto possimus ipsam officia sequi perspiciatis! Unde veniam"
+   const title = "Nos enorgullece ofrecer productos que resaltan la beleza autentica de tu cabello. Combinando la riqueza de los ingredientes naturales con métodos probados y veraces.    "
    const subtitle = ""
 
     return(
@@ -28,12 +29,12 @@ export default function AboutPage({ preview} : Props){
              <section className="flex flex-col-reverse md:flex-row p-5 w-full  md:gap-5">
                     <div className=" max-w-sm mx-auto">
                         <p className='md:sticky top-5  whitespace-pre-line md:mt-5 '>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto sit dolorum officia a omnis est, dolor ut aliquam maiores laudantium quibusdam quis. Rerum illum voluptates officiis et officia neque nisi?
+                            {"Creemos en la armonia entre la salud capilar y los recursos que la naturaleza pone a nuestra disposicion.\n\nHemos diseñado una variedad de productos que abordan las necesidades de nuestro cabello, comenzando desde la salud del cuero cabelludo, hasta las puntas."}
                         </p>
                     </div>
                     <div className='my-5 bg-rose-400/25 p-5 rounded-lg mx-auto flex-grow'>
                     <Image
-                        src={"http://localhost:8889/wp-content/uploads/2024/01/enhanced-image-3-1-e1706202239482.png"}
+                        src={LOGO_SEETHRU_IMG_URL}
                         alt="logo"
                         width={1720}
                         height={1158}
@@ -44,12 +45,12 @@ export default function AboutPage({ preview} : Props){
                 <section className="flex flex-col-reverse md:flex-row-reverse p-5 w-full  md:gap-5">
                     <div className=" max-w-sm mx-auto">
                         <p className='md:sticky top-5  whitespace-pre-line md:mt-5 '>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto sit dolorum officia a omnis est, dolor ut aliquam maiores laudantium quibusdam quis. Rerum illum voluptates officiis et officia neque nisi?
+                            {"Cada producto Elizabeth Haircare es la conclusion de un proceso iterativo formulado con precisión, para brindar resultados visibles y duraderos.\n\nEstimular el crecimiento capilar es uno de nuestros compromisos clave, y cada fórmula está cuidadosamente elaborada para promover un crecimiento saludable."}
                         </p>
                     </div>
                     <div className='my-5 bg-rose-400/25 p-5 rounded-lg mx-auto flex-grow'>
                     <Image
-                        src={"http://localhost:8889/wp-content/uploads/2024/01/enhanced-image-3-1-e1706202239482.png"}
+                        src={LOGO_SEETHRU_IMG_URL}
                         alt="logo"
                         width={1720}
                         height={1158}
@@ -61,12 +62,12 @@ export default function AboutPage({ preview} : Props){
                 <section className="flex flex-col-reverse md:flex-row p-5 w-full  md:gap-5">
                     <div className=" max-w-sm mx-auto">
                         <p className='md:sticky top-5  whitespace-pre-line md:mt-5 '>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto sit dolorum officia a omnis est, dolor ut aliquam maiores laudantium quibusdam quis. Rerum illum voluptates officiis et officia neque nisi?
+                            {"Además de estimular el crecimiento, nuestros productos están diseñados para fortalecer, nutrir y revitalizar tu cabello.\n\nDesde ingredientes que mejoran la circulación sanguínea en el cuero cabelludo hasta aquellos que proporcionan nutrientes esenciales para cada hebra, nuestros productos ofrecen una experiencia completa de cuidado capilar."}
                         </p>
                     </div>
                     <div className='my-5 bg-rose-400/25 p-5 rounded-lg mx-auto flex-grow'>
                     <Image
-                        src={"http://localhost:8889/wp-content/uploads/2024/01/enhanced-image-3-1-e1706202239482.png"}
+                        src={LOGO_SEETHRU_IMG_URL}
                         alt="logo"
                         width={1720}
                         height={1158}

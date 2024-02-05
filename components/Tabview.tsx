@@ -31,7 +31,7 @@ export default function TabView({ children, labels = [] }:Props) {
             <button 
               onClick={handleClick(index)}
               className={`transition-all duration-500 ease-in-out
-                ${activeIndex === index ? 'bg-blue-500 text-white px-4 py-2 rounded' : 'bg-gray-200 text-gray-800 px-4 py-2 rounded'}
+                ${activeIndex === index ? 'bg-rose-500/50 text-white px-4 py-2 rounded' : 'bg-gray-200 text-gray-800 px-4 py-2 rounded'}
               `}>
               {label}
             </button>

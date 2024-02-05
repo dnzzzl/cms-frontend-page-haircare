@@ -13,7 +13,7 @@ export interface Product {
 }
 
 const ProductCard: FC<Product> = (product : Product) => {
-    const orderHref = `https://wa.me/18298449486?text=Hola%20%3A%29%20me%20interesa%3A%20${product.name}`
+    const orderHref = `https://wa.me/18094618336?text=Hola%20%3A%29%20me%20interesa%3A%20${product.name}`
   return (
     <div className='flex flex-col justify-between rounded-lg shadow-lg bg-rose-400/25 hover:shadow-xl transition-all duration-200 hover:scale-105 ease-in-out'>
         <Link key={product.slug} href={`/shop/${product.slug}`}>
@@ -37,7 +37,7 @@ const ProductCard: FC<Product> = (product : Product) => {
 
         <div className='w-full flex justify-around mt-2 items-center p-4'>
             <span><p className="mt-1 text-sm text-gray-500">{product.price}</p></span>
-            <span><Link href={orderHref} className='bg-blue-500 text-white text-sm font-bold p-2 rounded  hover:bg-blue-700 transition-colors duration-200'>Order Now</Link></span>
+            <span><Link href={orderHref} className=' bg-green-600 text-white text-sm font-bold p-2 rounded  hover:bg-green-700 transition-colors duration-200'>Order Now</Link></span>
         </div>
     </div>
   )

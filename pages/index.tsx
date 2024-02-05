@@ -10,6 +10,7 @@ import {HERO_IMG_URL} from '../lib/constants'
 import { sub } from 'date-fns'
 import TabView from '../components/Tabview'
 import ShopGrid from '../components/shop-section-grid'
+import EmailInput from '../components/email-input'
 
 export default function Index({ allPosts: { edges }, allProducts, preview }) {
   const heroPost = edges[0]?.node
@@ -28,11 +29,11 @@ export default function Index({ allPosts: { edges }, allProducts, preview }) {
           <h1 className="text-left text-6xl lg:text-8xl tracking-tighter leading-tight">                                      
             {title}                                                         
           </h1>
-          <h4 className="text-center text-xl md:text-2xl  my-5 ">                                                            
+          <h2 className="text-center text-xl md:text-2xl  my-5 ">                                                            
             {subtitle}                                                       
-          </h4>
+          </h2>
           <div className=" rounded-lg ">
-            <button className="my-4 px-5 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 lg:px-10 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get bundle</button>
+            <button className="my-4 px-5 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-green-600 lg:px-10 rounded-xl hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Ordena en Whatsapp</button>
           </div>    
         </div>
       </Intro>
@@ -63,6 +64,7 @@ export default function Index({ allPosts: { edges }, allProducts, preview }) {
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </div>
       </TabView>
+      <EmailInput />
     </Layout>
   )
 }
