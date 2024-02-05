@@ -17,7 +17,7 @@ export default function Index({ allPosts: { edges }, allProducts, preview }) {
   const morePosts = edges.slice(1)
   const title = "Elizabeth Haircare"
   const subtitle = "Productos para mostrar la mejor versión de tu cabello."
-  console.log("products", allProducts)
+  
   return (
     <Layout preview={preview}>
       <Head>

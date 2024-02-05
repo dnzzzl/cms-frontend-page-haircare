@@ -12,7 +12,7 @@ export default function AboutPage({ preview} : Props){
    const title = "Nos enorgullece ofrecer productos que resaltan la beleza autentica de tu cabello. Combinando la riqueza de los ingredientes naturales con métodos probados y veraces.    "
    const subtitle = ""
 
-    return(
+    return (
         <Layout preview={preview}>
             <Intro>
                 <div 
@@ -39,7 +39,10 @@ export default function AboutPage({ preview} : Props){
                         width={1720}
                         height={1158}
                         className="h-full w-full scale-100  transition-all ease-in-out "
-                    />
+                        style={{
+                            maxWidth: "100%",
+                            height: "auto"
+                        }} />
                     </div>
                 </section>
                 <section className="flex flex-col-reverse md:flex-row-reverse p-5 w-full  md:gap-5">
@@ -55,7 +58,10 @@ export default function AboutPage({ preview} : Props){
                         width={1720}
                         height={1158}
                         className="h-full w-full scale-100  transition-all ease-in-out "
-                    />
+                        style={{
+                            maxWidth: "100%",
+                            height: "auto"
+                        }} />
                     </div>
                 </section>
 
@@ -72,10 +78,13 @@ export default function AboutPage({ preview} : Props){
                         width={1720}
                         height={1158}
                         className="h-full w-full scale-100  transition-all ease-in-out "
-                    />
+                        style={{
+                            maxWidth: "100%",
+                            height: "auto"
+                        }} />
                     </div>
                 </section>
             </div>
         </Layout>
-    )
+    );
 } 

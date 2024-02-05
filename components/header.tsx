@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link'
-import Image from 'next/image';
+import Image from "next/image";
 import AnimatedLinks from './link-list';
 import Drawer from './drawer';
 import { LOGO_SEETHRU_IMG_URL } from '../lib/constants';
@@ -57,9 +57,12 @@ export default function Header() {
                     alt="logo"
                     width={1720}
                     height={1158}
-                    sizes='50vw'
                     className="h-full w-full scale-125 hover:scale-100  transition-all ease-in-out "
-                  />
+                    sizes='50vw'
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto"
+                    }} />
               </div>
           </button>
         </div>
@@ -70,9 +73,12 @@ export default function Header() {
                 alt="logo"
                 width={1720}
                 height={1158}
-                sizes='50vw'
                 className="h-full w-full scale-125 hover:scale-100  transition-all ease-in-out "
-              />
+                sizes='50vw'
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
           </Link>
         </div>
         <div className='hidden md:flex justify-end'>
@@ -84,5 +90,5 @@ export default function Header() {
         <AnimatedLinks routes={routesMobile}/>
       </Drawer>
     </header>
-  )
+  );
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Image from 'next/image';
+import Image from "next/image";
 
 
 type ImageSliderProps = {
@@ -21,12 +21,15 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
     <div className='overflow-hidden w-full rounded-lg max-w-xl mx-auto relative'>
       <div className='relative'>
         <Image
-          layout='responsive'
           width={1520}
           height={1600}
           src={images[currentImageIndex]}
           alt='product image'
-        />
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
         <button
           className='absolute top-1/2 left-2 transform -translate-y-1/2 bg-black text-white bg-opacity-50 rounded-full p-2'
           onClick={previousImage}

@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import Image from 'next/image'
+import Image from "next/image"
 import Link from 'next/link'
 import Container from './container'
 
@@ -17,14 +17,17 @@ export default function CoverImage({ title, coverImage, slug }: Props) {
   const image = (
     
       <Image
-      width={2000}
-      height={1000}
-      alt={`Cover Image for ${title}`}
-      src={coverImage?.node.sourceUrl}
-      className={cn('shadow-small', {
-        'hover:shadow-medium transition-shadow duration-200': slug,
-      })}
-    />
+        width={2000}
+        height={1000}
+        alt={`Cover Image for ${title}`}
+        src={coverImage?.node.sourceUrl}
+        className={cn('shadow-small', {
+          'hover:shadow-medium transition-shadow duration-200': slug,
+        })}
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
    
   )
   return (

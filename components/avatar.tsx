@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image"
 
 export default function Avatar({ author }) {
   const isAuthorHaveFullName = author?.node?.firstName && author?.node?.lastName
@@ -15,9 +15,12 @@ export default function Avatar({ author }) {
           height={500}
           className="rounded-full"
           alt={name}
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </div>
       <div className="text-xl font-bold">{name}</div>
     </div>
-  )
+  );
 }

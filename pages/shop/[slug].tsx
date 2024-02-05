@@ -1,7 +1,7 @@
 import Layout from '../../components/layout'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { getProductsMockData, getSimpleProductsFromGraphQL } from '../../lib/api'
-import Image from 'next/image'
+import Image from "next/image"
 import ImageSlider from '../../components/image-slider'
 import Link from 'next/link'
 import { Product } from '../../components/product-card'
