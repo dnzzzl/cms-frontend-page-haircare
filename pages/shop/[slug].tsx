@@ -2,9 +2,16 @@ import Layout from '../../components/layout'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { getProductsMockData, getSimpleProductsFromGraphQL } from '../../lib/api'
 import Image from "next/image"
-import ImageSlider from '../../components/image-slider'
 import Link from 'next/link'
 import { Product } from '../../components/product-card'
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '../../components/carousel'
 
 export default function ProductDetailsPage ({name, short_description,long_description,price,images}:Product) {
 
@@ -15,7 +22,24 @@ export default function ProductDetailsPage ({name, short_description,long_descri
         <Layout preview={false}>
             <div className='flex flex-col-reverse md:flex-row py-5 mb-5 mt-28  mx-5 gap-5 md:max-w-4xl md:mx-auto'>
               <div className='mx-auto md:ml-5 flex flex-col justify-center w-full'> 
-                <ImageSlider images={images}/>
+                <div className=''>
+                  <Carousel>
+                    <CarouselContent className="overflow-hidde rounded-lg mx-auto relative">
+                      {images.map((url)=>{
+                        return(
+                          <CarouselItem>
+                            <Image
+                            src={url}
+                            alt={"product image"}
+                            width={600}
+                            height={600}
+                            />
+                          </CarouselItem>
+                        )
+                      })}
+                    </CarouselContent>
+                  </Carousel>
+                </div>
                 <p className='my-2 pt-5 whitespace-pre-line max-w-xl mx-auto'>
                   {long_description}
                 </p>
