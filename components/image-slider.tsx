@@ -3,18 +3,18 @@ import Image from "next/image";
 
 
 type ImageSliderProps = {
-  images: string[];
+  images?: string[];
 };
 
 const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images?.length||0);
   };
 
   const previousImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 +images?.length||0) % (images?.length || 0));
   };
 
   return (
