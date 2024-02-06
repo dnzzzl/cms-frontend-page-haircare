@@ -82,9 +82,6 @@ export async function getAllPostsForHome(preview) {
                 name
                 firstName
                 lastName
-                avatar {
-                  url
-                }
               }
             }
           }
@@ -99,7 +96,6 @@ export async function getAllPostsForHome(preview) {
       },
     }
   )
-
   return data?.posts
 }
 
@@ -118,9 +114,6 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
       name
       firstName
       lastName
-      avatar {
-        url
-      }
     }
     fragment PostFields on Post {
       title

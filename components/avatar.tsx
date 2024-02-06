@@ -1,4 +1,5 @@
 import Image from "next/image"
+import {AvatarImgURL} from "../lib/constants"
 
 export default function Avatar({ author }) {
   const isAuthorHaveFullName = author?.node?.firstName && author?.node?.lastName
@@ -10,7 +11,7 @@ export default function Avatar({ author }) {
     <div className="flex items-center">
       <div className="w-12 h-12 relative mr-4">
         <Image
-          src={author.node.avatar.url}
+          src={AvatarImgURL}
           width={500}
           height={500}
           className="rounded-full"
