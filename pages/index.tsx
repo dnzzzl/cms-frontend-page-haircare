@@ -40,7 +40,7 @@ export default function Index({ allPosts: { edges }, allProducts, preview }) {
       <TabView labels={["shop","blog"]}>
         <div>
           <h2 className="text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
-            Shop
+            Destacados
           </h2>
           <ShopGrid allProducts={allProducts?.edges} />
         </div>

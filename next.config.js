@@ -12,7 +12,6 @@ const { protocol, hostname, port, pathname } = new URL(
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
-    domains: ["wordpress.elizabeth-haircare.com"],
     remotePatterns: [
       {
         protocol: protocol.slice(0, -1),
@@ -20,6 +19,11 @@ module.exports = {
         port,
         pathname: `${pathname}/**`,
       },
+      {
+        protocol: "http",
+        hostname:"**.elizabeth-haircare.com",
+        port:"",
+      }
     ],
   },
 }

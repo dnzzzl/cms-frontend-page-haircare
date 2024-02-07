@@ -32,10 +32,7 @@ export default function HeroPost({
           alt={title}
           className='absolute z-0'
           fill
-          sizes="100vw"
-          style={{
-            objectFit: "cover"
-          }} />}
+          sizes="100vw"/>}
         <div className='relative z-10 p-2' >
           <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
             <Link
