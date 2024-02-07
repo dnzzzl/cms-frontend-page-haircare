@@ -1,11 +1,11 @@
 import {FC} from "react";
 import Layout from "../../components/layout";
-import preview from "../api/preview";
-import Intro from "../../components/intro";
 import MoreStories from "../../components/more-stories";
 import { GetStaticProps} from "next";
 import { getAllPostsForHome } from "../../lib/api";
+
 import HeroPost from "../../components/hero-post";
+import Intro from "../../components/intro";
 
 
 interface Props {
@@ -50,7 +50,7 @@ const Blog: FC<Props> = ({ allPosts: { edges }, preview }:Props) => {
             </h2>
             <HeroPost
               title={heroPost.title}
-              coverImage={heroPost.featuredImage}
+              coverImage={heroPost.featuredImage.node.sourceUrl}
               date={heroPost.date}
               author={heroPost.author}
               slug={heroPost.slug}

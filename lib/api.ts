@@ -241,8 +241,8 @@ export async function getSimpleProductsFromGraphQL(){
     if (node.image?.sourceUrl) {
       images.push(node.image.sourceUrl);
     }
-    if (node.simpleProduct?.galleryImages?.edges) {
-      images.push(...node.simpleProduct.galleryImages.edges.map(edge => edge.node.sourceUrl));
+    if (node.galleryImages) {
+      images.push(...node.galleryImages.edges.map(edge => edge.node.sourceUrl));
     }
     return {
       "slug": node.slug,

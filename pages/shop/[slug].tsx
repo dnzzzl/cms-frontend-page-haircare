@@ -1,8 +1,9 @@
 import Layout from '../../components/layout'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { getProductsMockData, getSimpleProductsFromGraphQL } from '../../lib/api'
+import {getSimpleProductsFromGraphQL } from '../../lib/api'
 import Image from "next/image"
 import Link from 'next/link'
+
 import { Product } from '../../components/product-card'
 
 import {
@@ -20,17 +21,17 @@ export default function ProductDetailsPage ({name, short_description,long_descri
 
     return (
         <Layout preview={false}>
-            <div className='flex flex-col-reverse md:flex-row py-5 mb-5 mt-28  mx-5 gap-5 md:max-w-4xl md:mx-auto'>
-              <div className='mx-auto md:ml-5 flex flex-col justify-center w-full'> 
-                <div className=''>
-                  <Carousel>
-                    <CarouselContent className="overflow-hidde rounded-lg mx-auto relative">
+            <div className='flex flex-col-reverse md:flex-row py-5 mb-5 mt-28 mx-5 gap-5 md:max-w-4xl md:mx-auto'>
+              <div className='mx-auto flex flex-col justify-center w-full'> 
+                  <Carousel className='rounded-lg overflow-hidden'>
+                    <CarouselContent className="">
                       {images?.map((url)=>{
                         return(
-                          <CarouselItem>
+                          <CarouselItem className='min-h-96' key={url}>
                             <Image
                             src={url}
                             alt={"product image"}
+                            objectFit='cover'
                             width={600}
                             height={600}
                             />
@@ -39,11 +40,11 @@ export default function ProductDetailsPage ({name, short_description,long_descri
                       })}
                     </CarouselContent>
                   </Carousel>
-                </div>
                 <p className='my-2 pt-5 whitespace-pre-line max-w-xl mx-auto'>
                   {long_description}
                 </p>
               </div>
+
               <div className='w-full mr-5'>
                 <div className='md:sticky my-5 top-5 bg-rose-400/25  shadow-xl  p-5 rounded-lg h-min mx-auto max-w-sm'>
                   <h1 className='text-2xl font-bold pb-2'>{name}</h1>
@@ -52,9 +53,8 @@ export default function ProductDetailsPage ({name, short_description,long_descri
                       <span><p className="mt-1 text-sm ">{price}</p></span>
                       <span><Link href={orderHref} className='bg-green-600 text-white text-sm font-bold p-2 rounded  hover:bg-green-700 transition-colors duration-200'>Order Now</Link></span>
                   </div>  
+                </div>
               </div>
-            </div>
-              
             </div>
         </Layout>
     )

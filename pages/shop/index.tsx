@@ -1,11 +1,11 @@
 import Layout from '../../components/layout'
 import { GetStaticProps } from 'next'
-import {Product} from '../../components/product-card'
 import { getSimpleProductsFromGraphQL } from '../../lib/api'
 import ShopGrid from '../../components/shop-section-grid'
 import Intro from '../../components/intro'
-import { HERO_SHOP_IMG_URL } from '../../lib/constants'
 
+import { HERO_SHOP_IMG_URL } from '../../lib/constants'
+import {Product} from '../../components/product-card'
 
 
 export interface ShopProps {

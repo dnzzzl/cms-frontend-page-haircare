@@ -12,6 +12,10 @@ export default function AboutPage({ preview} : Props){
    const title = "Nos enorgullece ofrecer productos que resaltan la beleza autentica de tu cabello. Combinando la riqueza de los ingredientes naturales con métodos probados y veraces.    "
    const subtitle = ""
 
+   const img1 = "http://wordpress.elizabeth-haircare.com/wp-content/uploads/2024/01/IMG_20210208_170858-scaled.jpg"
+   const img2 = "http://wordpress.elizabeth-haircare.com/wp-content/uploads/2024/01/00100dPORTRAIT_00100_BURST20210328133317117_COVER-scaled.jpg"
+   const img3 = "http://wordpress.elizabeth-haircare.com/wp-content/uploads/2024/01/IMG_20210208_1655392-scaled.jpg"
+
     return (
         <Layout preview={preview}>
             <Intro>
@@ -32,17 +36,13 @@ export default function AboutPage({ preview} : Props){
                             {"Creemos en la armonia entre la salud capilar y los recursos que la naturaleza pone a nuestra disposicion.\n\nHemos diseñado una variedad de productos que abordan las necesidades de nuestro cabello, comenzando desde la salud del cuero cabelludo, hasta las puntas."}
                         </p>
                     </div>
-                    <div className='my-5 bg-rose-400/25 p-5 rounded-lg mx-auto flex-grow'>
+                    <div className='my-5 bg-rose-400/25 rounded-lg mx-auto flex-grow overflow-hidden'>
                     <Image
-                        src={LOGO_SEETHRU_IMG_URL}
+                        src={img1}
                         alt="logo"
-                        width={1720}
-                        height={1158}
-                        className="h-full w-full scale-100  transition-all ease-in-out "
-                        style={{
-                            maxWidth: "100%",
-                            height: "auto"
-                        }} />
+                        height={1000}
+                        width={1000}
+                        className="h-full w-full scale-100  transition-all ease-in-out "/>
                     </div>
                 </section>
                 <section className="flex flex-col-reverse md:flex-row-reverse p-5 w-full  md:gap-5">
@@ -51,12 +51,12 @@ export default function AboutPage({ preview} : Props){
                             {"Cada producto Elizabeth Haircare es la conclusion de un proceso iterativo formulado con precisión, para brindar resultados visibles y duraderos.\n\nEstimular el crecimiento capilar es uno de nuestros compromisos clave, y cada fórmula está cuidadosamente elaborada para promover un crecimiento saludable."}
                         </p>
                     </div>
-                    <div className='my-5 bg-rose-400/25 p-5 rounded-lg mx-auto flex-grow'>
+                    <div className='my-5 bg-rose-400/25 rounded-lg mx-auto flex-grow overflow-hidden'>
                     <Image
-                        src={LOGO_SEETHRU_IMG_URL}
+                        src={img2}
                         alt="logo"
-                        width={1720}
-                        height={1158}
+                        width={1000}
+                        height={1000}
                         className="h-full w-full scale-100  transition-all ease-in-out "
                         style={{
                             maxWidth: "100%",
@@ -71,12 +71,12 @@ export default function AboutPage({ preview} : Props){
                             {"Además de estimular el crecimiento, nuestros productos están diseñados para fortalecer, nutrir y revitalizar tu cabello.\n\nDesde ingredientes que mejoran la circulación sanguínea en el cuero cabelludo hasta aquellos que proporcionan nutrientes esenciales para cada hebra, nuestros productos ofrecen una experiencia completa de cuidado capilar."}
                         </p>
                     </div>
-                    <div className='my-5 bg-rose-400/25 p-5 rounded-lg mx-auto flex-grow'>
+                    <div className='my-5 bg-rose-400/25 rounded-lg mx-auto flex-grow overflow-hidden'>
                     <Image
-                        src={LOGO_SEETHRU_IMG_URL}
+                        src={img3}
                         alt="logo"
-                        width={1720}
-                        height={1158}
+                        height={1000}
+                        width={1000}
                         className="h-full w-full scale-100  transition-all ease-in-out "
                         style={{
                             maxWidth: "100%",
