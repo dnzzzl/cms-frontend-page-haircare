@@ -19,7 +19,7 @@ export default function EmailInput(){
         setSubmitted(true);
     }
 
-    const thankyou_message = "¡Gracias por elegir Elizabeth Haircare para tu cuidado capilar! Aun estamos trabajando para compartir contigo tips y contenido para un cabello más saludable y hermoso."
+    const thankyou_message = "¡Gracias por elegir Elizabeth Haircare para tu cuidado capilar!"
     const title = "Mantengamos la Conversación"
     const subtitle = "Introduce tu dirección de correo electrónico a continuación y únete a nuestra comunidad. Prometemos cuidar tu bandeja de entrada y enviarte solo información valiosa."
 
