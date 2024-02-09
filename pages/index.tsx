@@ -35,7 +35,7 @@ export default function Index({ allPosts: { edges }, allProducts, preview }) {
             {subtitle}                                                       
           </h2>
           <div className=" rounded-lg ">
-            <button className="my-4 px-5 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-green-600 lg:px-10 rounded-xl hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Ordena en Whatsapp</button>
+            <Link href={"https://wa.me/18094618336?text=Hola%20%3A%29%20me%20interesa%20la%20linea%20Elizabeth%20Haircare"} className="my-4 px-5 py-4 text-base text-center text-white transition duration-500 ease-in-out transform bg-green-600 lg:px-10 rounded-xl hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-bold">Ordena en Whatsapp</Link>
           </div>    
         </div>
       </Intro>
@@ -60,7 +60,7 @@ export default function Index({ allPosts: { edges }, allProducts, preview }) {
             <h2 className="text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
             Blogpost Reciente
             </h2>
-            <Link href='/posts' className=' mb-8 text-4xl font-semibold tracking-tighter leading-tight hover:underline flex items-center w-min whitespace-nowrap'>
+            <Link href='/posts' className='mb-8 text-4xl font-semibold tracking-tighter leading-tight hover:underline flex items-center w-min whitespace-nowrap'>
               <LinkIcon/>
                 <p className='mx-2 '>ver todos</p>
               <ArrowUpRight/>

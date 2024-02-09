@@ -12,9 +12,9 @@ export default function AboutPage({ preview} : Props){
    const title = "Nos enorgullece ofrecer productos que resaltan la beleza autentica de tu cabello. Combinando la riqueza de los ingredientes naturales con métodos probados y veraces.    "
    const subtitle = ""
 
-   const img1 = "http://wordpress.elizabeth-haircare.com/wp-content/uploads/2024/01/IMG_20210208_170858-scaled.jpg"
-   const img2 = "http://wordpress.elizabeth-haircare.com/wp-content/uploads/2024/01/00100dPORTRAIT_00100_BURST20210328133317117_COVER-scaled.jpg"
-   const img3 = "http://wordpress.elizabeth-haircare.com/wp-content/uploads/2024/01/IMG_20210208_1655392-scaled.jpg"
+   const img1 = "https://wordpress.elizabeth-haircare.com/wp-content/uploads/2024/01/IMG_20210208_170858-scaled.jpg"
+   const img2 = "https://wordpress.elizabeth-haircare.com/wp-content/uploads/2024/01/00100dPORTRAIT_00100_BURST20210328133317117_COVER-scaled.jpg"
+   const img3 = "https://wordpress.elizabeth-haircare.com/wp-content/uploads/2024/01/IMG_20210208_1655392-scaled.jpg"
 
     return (
         <Layout preview={preview}>
