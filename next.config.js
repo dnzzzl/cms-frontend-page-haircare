@@ -20,7 +20,7 @@ module.exports = {
         pathname: `${pathname}/**`,
       },
       {
-        protocol: "http",
+        protocol: "https",
         hostname:"**.elizabeth-haircare.com",
         port:"",
       }
