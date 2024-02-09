@@ -274,9 +274,7 @@ export async function postEmailFeedbackForm(email:string){
     "headers": {
       "accept": "application/json, */*;q=0.1",
       "accept-language": "en-US,en;q=0.9",
-      "cache-control": "no-cache",
       "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryAG43VLlAccQ4gOTm",
-      "sec-gpc": "1",
     },
     "body": `------WebKitFormBoundaryAG43VLlAccQ4gOTm\r\nContent-Disposition: form-data; name=\"_wpcf7\"\r\n\r\n50\r\n------WebKitFormBoundaryAG43VLlAccQ4gOTm\r\nContent-Disposition: form-data; name=\"_wpcf7_version\"\r\n\r\n5.8.7\r\n------WebKitFormBoundaryAG43VLlAccQ4gOTm\r\nContent-Disposition: form-data; name=\"_wpcf7_locale\"\r\n\r\nen_US\r\n------WebKitFormBoundaryAG43VLlAccQ4gOTm\r\nContent-Disposition: form-data; name=\"_wpcf7_unit_tag\"\r\n\r\nwpcf7-f50-p69-o1\r\n------WebKitFormBoundaryAG43VLlAccQ4gOTm\r\nContent-Disposition: form-data; name=\"_wpcf7_container_post\"\r\n\r\n69\r\n------WebKitFormBoundaryAG43VLlAccQ4gOTm\r\nContent-Disposition: form-data; name=\"_wpcf7_posted_data_hash\"\r\n\r\n\r\n------WebKitFormBoundaryAG43VLlAccQ4gOTm\r\nContent-Disposition: form-data; name=\"your-email\"\r\n\r\n${email}\r\n------WebKitFormBoundaryAG43VLlAccQ4gOTm--\r\n`,
     "method": "POST"
