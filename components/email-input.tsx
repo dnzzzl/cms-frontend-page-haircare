@@ -7,6 +7,7 @@ import {
     AccordionItem,
     AccordionTrigger,
   } from "./accordion"
+import { postEmailFeedbackForm } from "../lib/api";
 
 export default function EmailInput(){
     const [email, setEmail] = useState("");
@@ -14,6 +15,7 @@ export default function EmailInput(){
     
     const handleSubmit = (event) => {
         event.preventDefault();
+        postEmailFeedbackForm(email);
         setSubmitted(true);
     }
 
@@ -37,12 +39,12 @@ export default function EmailInput(){
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="bg-white rounded-md text-primary-foreground w-full md:w-1/2 shadow p-2 m-2"
-                    disabled
+                    
                 />
                 <button 
                     type="submit"
                     className="bg-rose-400/50 rounded-md max-w-sm text-primary-foreground shadow  h-9 px-4 py-2"
-                    disabled
+                    
                 >
                     Enviar
                 </button>
