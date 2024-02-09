@@ -32,7 +32,7 @@ export default function EmailInput(){
                     {subtitle}
                 </h2>
                 <input 
-                    placeholder="registrarte en nuestra lista"
+                    placeholder="Registrarte en nuestra lista!"
                     type="email" 
                     id="email" 
                     name="email"
