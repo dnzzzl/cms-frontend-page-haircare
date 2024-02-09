@@ -206,7 +206,7 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
   return data
 }
 
-export async function getSimpleProductsFromGraphQL(){
+export async function getSimpleProductsFromGraphQL(filterFeatured = false){
   const data = await fetchAPI(
     `query GetSimpleProducts {
       products {
@@ -230,20 +230,16 @@ export async function getSimpleProductsFromGraphQL(){
             image {
               sourceUrl
             }
+            featured
           }
         }
       }
-    }`
-  )
+    }`);
 
+  // Mapping the data into a more convenient format
   let products = data.products.edges.map(({node}) => {
-    let images = [];
-    if (node.image?.sourceUrl) {
-      images.push(node.image.sourceUrl);
-    }
-    if (node.galleryImages) {
-      images.push(...node.galleryImages.edges.map(edge => edge.node.sourceUrl));
-    }
+    let images = getImages(node);
+    
     return {
       "slug": node.slug,
       "name": node.name,
@@ -251,11 +247,33 @@ export async function getSimpleProductsFromGraphQL(){
       "long_description": node.description,
       "price": node.price,
       "images": images,
+      "featured":node.featured
     }
-  });
-  return { edges: products };
+  }).filter(node => !filterFeatured || node.featured); // Filtering out non-featured products if filterFeatured is true
+  
+  return {edges: products};
 }
 
+/** Utility function to get images from a node */
+function getImages(node) {
+
+  let images = [];
+
+  if (node.image?.sourceUrl) {
+    images.push(node.image.sourceUrl);
+  }
+  if (node.galleryImages) {
+    images.push(...node.galleryImages.edges.map(edge => edge.node.sourceUrl));
+  }
+
+  return images;
+}
+
+export async function getFeaturedProductsFromGraphQL(){
+  const data = await fetchAPI(`
+
+  `)
+}
 export function getProductsMockData() {
   const products:Product[] = [
     {

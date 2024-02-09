@@ -6,7 +6,8 @@ import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getAllPostsForHome, getSimpleProductsFromGraphQL } from '../lib/api'
 import {HERO_IMG_URL} from '../lib/constants'
-
+import Link from 'next/link'
+import {ArrowUpRight, Link as LinkIcon} from 'lucide-react'
 //custom components:
 import HeroPost from '../components/hero-post'
 import TabView from '../components/Tabview'
@@ -42,16 +43,28 @@ export default function Index({ allPosts: { edges }, allProducts, preview }) {
         <div>
           <h2 className="text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
             Destacados
+           
           </h2>
+          <Link href='/shop' className='text-4xl font-semibold tracking-tighter leading-tight hover:underline flex items-center w-min whitespace-nowrap'>
+            <LinkIcon/>
+            <p className='mx-2'>ver todos</p>
+            <ArrowUpRight/>
+          </Link>
+          
           <ShopGrid allProducts={allProducts?.edges} />
         </div>
         <div 
         className=''
         >
           {heroPost && (<>
-            <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
+            <h2 className="text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
             Blogpost Reciente
             </h2>
+            <Link href='/posts' className=' mb-8 text-4xl font-semibold tracking-tighter leading-tight hover:underline flex items-center w-min whitespace-nowrap'>
+              <LinkIcon/>
+                <p className='mx-2 '>ver todos</p>
+              <ArrowUpRight/>
+            </Link>
             <HeroPost
               title={heroPost.title}
               coverImage={heroPost.featuredImage.node.sourceUrl}
@@ -72,7 +85,7 @@ export default function Index({ allPosts: { edges }, allProducts, preview }) {
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const allPosts = await getAllPostsForHome(preview)
-  const allProducts = await getSimpleProductsFromGraphQL();
+  const allProducts = await getSimpleProductsFromGraphQL(true);
 
   return {
     props: { allPosts, allProducts, preview },
