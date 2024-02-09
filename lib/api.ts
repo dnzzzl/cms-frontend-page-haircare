@@ -270,7 +270,7 @@ function getImages(node) {
 }
 
 export async function postEmailFeedbackForm(email:string){
-  const data = await fetch(`http://wordpress.elizabeth-haircare.com/wp-json/contact-form-7/v1/contact-forms/50/feedback`, {
+  const data = await fetch(`https://wordpress.elizabeth-haircare.com/wp-json/contact-form-7/v1/contact-forms/50/feedback`, {
     "headers": {
       "accept": "application/json, */*;q=0.1",
       "accept-language": "en-US,en;q=0.9",
