@@ -13,6 +13,7 @@ import HeroPost from '../components/hero-post'
 import TabView from '../components/Tabview'
 import ShopGrid from '../components/shop-section-grid'
 import EmailInput from '../components/email-input'
+import TestimonialsGallery from '../components/testimonials-gallery'
 
 export default function Index({ allPosts: { edges }, allProducts, preview }) {
   const heroPost = edges[0]?.node
@@ -78,7 +79,12 @@ export default function Index({ allPosts: { edges }, allProducts, preview }) {
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </div>
       </TabView>
+      <section className='text-center w-full p-4 '>
+        <h1 className='text-6xl md:text-7xl font-bold tracking-tighter leading-tight'>Confia en nuestros clientes y sus opiniones</h1>
+        <TestimonialsGallery />
+      </section>
       <EmailInput />
+      
     </Layout>
   )
 }
