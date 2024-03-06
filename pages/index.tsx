@@ -79,8 +79,8 @@ export default function Index({ allPosts: { edges }, allProducts, preview }) {
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </div>
       </TabView>
-      <section className='text-center w-full p-4 '>
-        <h1 className='text-6xl md:text-7xl font-bold tracking-tighter leading-tight'>Confia en nuestros clientes y sus opiniones</h1>
+      <section className='relative h-[225vh] text-center w-full p-4 '>
+        
         <TestimonialsGallery />
       </section>
       <EmailInput />
