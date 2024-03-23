@@ -1,4 +1,5 @@
 import { Product } from "../components/product-card"
+import { TestimonialType } from "../components/testimonials-gallery"
 
 const API_URL = process.env.WORDPRESS_API_URL
 
@@ -302,3 +303,48 @@ export function getProductsMockData() {
   ]
   return { edges:products }
   }
+
+export function getAllTestimonials(){
+  let allTestimonials = <TestimonialType[]>[
+    {
+      name: "Urania",
+      content: "Estaba en la inglesia cuando una chica me comentó que mi pelo estaba bastante bonito 🥰, le dije que uso tus productos. Realmente estaban muy finos y débiles, y despues que uso tus productos estan fuertes, muchos y bellos.",
+      imageSrc: "/images/john.jpg",
+      handle: "Urania",
+      link: "",
+      initials: "UA"
+    },{
+      name: "Charlotte",
+      content: "Me preguntaron ayer que si era que había cortado mi pelo en capas 😂, es que ahora se ven abundantes. Y yo que noo, esos son los efectos de mi gotero.",
+      imageSrc: "/images/john.jpg",
+      handle: "Charlotte",
+      link: "",
+      initials: "C"
+    },{
+      name: "Estela",
+      content: "Yo ya no puedo estar si esos productos, han cambiado mi cabello para mejor.",
+      imageSrc: "/images/john.jpg",
+      handle: "Estela",
+      link: "",
+      initials: "E"
+    },
+    {
+      name: "Betania",
+      content: "Mi mamá probo el gotero y le encantó, y ahora quiere la línea completa",
+      imageSrc: "/images/john.jpg",
+      handle: "Betania",
+      link: "",
+      initials: "B"
+    },
+    {
+      name: "Estephany",
+      content: "Mi pelo me ha crecido muchísimo desde que estoy usando estos productos, son muy efectivos",
+      imageSrc: "/images/john.jpg",
+      handle: "Estephany",
+      link: "",
+      initials: "E"
+    },
+  ]
+
+  return allTestimonials;
+}

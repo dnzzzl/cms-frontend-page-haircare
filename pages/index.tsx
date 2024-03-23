@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next'
 import MoreStories from '../components/more-stories'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
-import { getAllPostsForHome, getSimpleProductsFromGraphQL } from '../lib/api'
+import { getAllPostsForHome, getSimpleProductsFromGraphQL, getAllTestimonials} from '../lib/api'
 import {HERO_IMG_URL} from '../lib/constants'
 import Link from 'next/link'
 import {ArrowUpRight, Link as LinkIcon} from 'lucide-react'
@@ -15,7 +15,7 @@ import ShopGrid from '../components/shop-section-grid'
 import EmailInput from '../components/email-input'
 import TestimonialsGallery from '../components/testimonials-gallery'
 
-export default function Index({ allPosts: { edges }, allProducts, preview }) {
+export default function Index({ allPosts: { edges }, allProducts, allTestimonials, preview }) {
   const heroPost = edges[0]?.node
   const morePosts = edges.slice(1)
   const title = "Elizabeth Haircare"
@@ -79,9 +79,9 @@ export default function Index({ allPosts: { edges }, allProducts, preview }) {
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </div>
       </TabView>
-      <section className='relative h-[225vh] text-center w-full p-4 '>
+      <section className={`relative h-[${allTestimonials.length*100}vh] text-center w-full p-4`}>
         
-        <TestimonialsGallery />
+        <TestimonialsGallery listoftestimonials={allTestimonials}/>
       </section>
       <EmailInput />
       
@@ -92,9 +92,10 @@ export default function Index({ allPosts: { edges }, allProducts, preview }) {
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const allPosts = await getAllPostsForHome(preview)
   const allProducts = await getSimpleProductsFromGraphQL(true);
+  const allTestimonials = await getAllTestimonials();
 
   return {
-    props: { allPosts, allProducts, preview },
+    props: { allPosts, allProducts, allTestimonials, preview },
     revalidate: 10,
   }
 }

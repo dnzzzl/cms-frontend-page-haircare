@@ -76,6 +76,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         ...product,
         preview: false,
       },
+      revalidate: 10,
     };
   }
 
