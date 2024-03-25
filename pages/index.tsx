@@ -68,7 +68,7 @@ export default function Index({ allPosts: { edges }, allProducts, allTestimonial
             </Link>
             <HeroPost
               title={heroPost.title}
-              coverImage={heroPost.featuredImage.node.sourceUrl}
+              coverImage={heroPost.featuredImage?.node.sourceUrl}
               date={heroPost.date}
               author={heroPost.author}
               slug={heroPost.slug}
